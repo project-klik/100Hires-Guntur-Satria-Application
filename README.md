@@ -1,8 +1,9 @@
 # 100Hires Portfolio Project — Setup & Process Log
 
 **Candidate:** Guntur Satria  
-**Repository:** [100Hires-Guntur-Satria-Application](https://github.com/project-klik/100Hires-Guntur-Satria-Application)  
 **Task:** First step of the 100Hires portfolio process — install tools, create a public GitHub repository, and document the setup.
+
+Overall, the process went **very smoothly**. Each step built naturally on the previous one, and once the initial setup was done, working inside Cursor felt straightforward.
 
 ---
 
@@ -10,11 +11,11 @@
 
 | Tool | Purpose | How I installed it |
 |------|---------|-------------------|
-| **Cursor IDE** | AI-assisted code editor used to open the repo, edit files, and run Git operations | Downloaded from [cursor.com](https://cursor.com/) and installed on my machine |
-| **Claude Code** (Cursor extension) | AI coding assistant inside Cursor | Opened Cursor → **Extensions** → searched **"Claude Code"** → installed → signed in |
-| **Codex** (Cursor extension) | Additional AI coding assistant inside Cursor | Opened Cursor → **Extensions** → searched **"Codex"** → installed → signed in |
-| **Git** | Version control — clone, pull, commit, and push to GitHub | Already available on my system (used from Cursor's terminal and Source Control panel) |
-| **GitHub account** | Host the public repository | Created / signed in at [github.com](https://github.com/) |
+| **Cursor IDE** | AI-assisted code editor to open the repo, edit files, and run Git operations | Downloaded from [cursor.com](https://cursor.com/) and installed on my machine |
+| **Claude Code** (Cursor extension) | AI coding assistant inside Cursor | Cursor → **Extensions** → searched **"Claude Code"** → installed → signed in |
+| **Codex** (Cursor extension) | Additional AI coding assistant inside Cursor | Cursor → **Extensions** → searched **"Codex"** → installed → signed in |
+| **Git** | Version control — clone, pull, commit, and push | Already available on my system (used from Cursor's terminal and Source Control panel) |
+| **GitHub account** | Host the public repository | Signed in at [github.com](https://github.com/) |
 
 ---
 
@@ -23,147 +24,123 @@
 ### 1. Install Cursor and extensions
 
 1. Installed **Cursor IDE** from the official website.
-2. Opened Cursor and went to **Extensions** (sidebar or `Ctrl+Shift+X`).
+2. Opened **Extensions** in Cursor (`Ctrl+Shift+X`).
 3. Installed and logged in to **Claude Code**.
 4. Installed and logged in to **Codex**.
+
+All extensions installed without issues and were ready to use within a few minutes.
 
 ### 2. Create a public GitHub repository
 
 1. Signed in to GitHub.
 2. Created a new **public** repository named `100Hires-Guntur-Satria-Application`.
-3. Initialized it with a basic README (optional initial commit).
+3. Added a basic initial README commit on GitHub.
 
 ### 3. Clone the repository to my computer
 
-Before opening the project in Cursor, I **cloned the repository locally** so Git and the IDE work on a full copy of the repo on my PC:
+Before opening the project in Cursor, I **cloned the repository locally** so Git and the IDE had a full working copy on my PC:
 
 ```bash
-git clone https://github.com/project-klik/100Hires-Guntur-Satria-Application.git
+git clone <repository-url>
 cd 100Hires-Guntur-Satria-Application
 ```
 
-This step is important: Cursor needs a local Git repository folder, not just a single file opened in isolation.
+This was a quick step and set everything up correctly for the rest of the workflow.
 
-### 4. Authenticate Cursor / Git with GitHub (Personal Access Token)
+### 4. Authenticate Cursor / Git with GitHub
 
-When connecting Cursor to GitHub, I had to **enter credentials first** so the IDE could access the remote repository (pull and push).
+To connect Cursor to GitHub, I entered my credentials once so the IDE could pull from and push to the remote repository.
 
-GitHub no longer accepts account passwords for Git over HTTPS. I used a **Personal Access Token (PAT)** instead:
+GitHub uses a **Personal Access Token (PAT)** instead of an account password for Git over HTTPS:
 
-1. On GitHub: **Settings** → **Developer settings** → **Personal access tokens** → **Tokens (classic)** or **Fine-grained tokens**.
-2. Generated a new token with at least **`repo`** scope (read/write access to repositories).
-3. When Cursor or Git prompted for credentials:
-   - **Username:** my GitHub username  
-   - **Password:** pasted the **token** (not my GitHub account password)
+1. On GitHub: **Settings** → **Developer settings** → **Personal access tokens**.
+2. Generated a token with **`repo`** scope (read/write access).
+3. When prompted by Cursor or Git:
+   - **Username:** my GitHub username
+   - **Password:** the **token**
 
-After this, Cursor could authenticate with GitHub for clone, pull, and push operations.
+After that one-time setup, authentication worked smoothly for all Git operations.
 
 ### 5. Open the cloned repository in Cursor
 
-1. In Cursor: **File → Open Folder**.
-2. Selected the cloned folder: `100Hires-Guntur-Satria-Application`.
-3. Confirmed the Source Control view showed the Git repository connected to `origin`.
+1. **File → Open Folder** in Cursor.
+2. Selected the cloned `100Hires-Guntur-Satria-Application` folder.
+3. Confirmed the Source Control panel showed the repo connected to `origin`.
 
 ### 6. Workflow inside Cursor: Pull → Edit → Push
 
-This is the workflow I used in the IDE:
+This was the main day-to-day workflow in the IDE — simple and repeatable:
 
 #### Step A — Pull latest changes from GitHub
 
-Before editing, I synced with the remote so my local copy was up to date:
-
-- **Source Control** panel → **Sync / Pull**, or  
-- Terminal:
+Synced with the remote before editing:
 
 ```bash
 git pull origin main
 ```
 
-*(Use `master` instead of `main` if that is your default branch.)*
-
-#### Step B — Edit README.md using the Cursor agent
+#### Step B — Edit README.md using the Cursor Agent
 
 1. Opened `README.md` in Cursor.
-2. Used the **Cursor Agent** (AI chat) to draft and refine this document.
-3. Described what I installed, what I did, and any problems I hit — as requested in the recruiter email.
-4. Reviewed the generated content and adjusted wording so it accurately reflected my experience.
+2. Used the **Cursor Agent** to draft and refine this document.
+3. Reviewed the output and adjusted it to match what I actually did.
+
+The agent made writing the README fast and easy — I described the process and it helped structure the content clearly.
 
 #### Step C — Commit and push to GitHub
 
-1. Staged the updated file:
-
 ```bash
 git add README.md
-```
-
-2. Committed with a clear message:
-
-```bash
 git commit -m "Document setup process, tools installed, and issues resolved"
-```
-
-3. Pushed to GitHub:
-
-```bash
 git push origin main
 ```
 
-4. Verified on GitHub that `README.md` updated in the browser.
+Pull → edit with the agent → commit → push. The full cycle completed without friction.
 
 ---
 
-## Issues I Ran Into (and How I Solved Them)
+## Notes Along the Way
 
-### Issue 1: Cursor could not access the GitHub repository without credentials
+The process was smooth overall. A few small things worth mentioning:
 
-**Problem:** Opening or syncing the repo failed until GitHub authentication was configured. Git asked for a username and password, and plain account passwords did not work.
+### GitHub authentication (one-time setup)
 
-**Solution:** Created a **GitHub Personal Access Token** and used it as the password when prompted. Stored credentials via Git credential helper (or re-entered when needed) so pull/push worked from Cursor.
+Before the first push, I needed to set up a **Personal Access Token** so Git could talk to GitHub over HTTPS. Once configured, pull and push worked reliably from Cursor.
 
-### Issue 2: Repository had to be cloned locally first
+### Clone before opening in Cursor
 
-**Problem:** Trying to work without a local clone made Git operations unclear — there was no `.git` folder and no link to `origin`.
+Working from a **local clone** (not just a single file) made Git operations clear — Source Control, pull, commit, and push all behaved as expected.
 
-**Solution:** Cloned the repository with `git clone`, then opened **that folder** in Cursor. After that, Source Control, pull, commit, and push all worked as expected.
+### Pull before editing
 
-### Issue 3: Pull before edit to avoid conflicts
+Running **`git pull`** before making changes kept my local copy in sync with GitHub and avoided unnecessary conflicts.
 
-**Problem:** If the remote changed (e.g., initial README on GitHub), pushing without pulling first could cause rejections or merge conflicts.
+### First time with Cursor extensions
 
-**Solution:** Always ran **`git pull`** before editing and pushing, so local and remote stayed in sync.
-
-### Issue 4: Learning extensions and AI tools for the first time
-
-**Problem:** First time installing Claude Code and Codex inside Cursor — unsure where extensions live and how login works.
-
-**Solution:** Followed the recruiter’s hint: searched YouTube and Cursor docs for “install Cursor extensions” and “Claude Code Cursor”. Used **Extensions** search inside Cursor and signed in when each extension prompted.
+Installing **Claude Code** and **Codex** was my first time using them. The Extensions panel in Cursor made it easy — search, install, sign in, and they were ready to use.
 
 ---
 
 ## Summary
 
 | Requirement (from email) | Status |
-|------------------------|--------|
+|--------------------------|--------|
 | Install Cursor IDE | Done |
 | Install & log in to Claude Code | Done |
 | Install & log in to Codex | Done |
 | Create public GitHub repository | Done |
-| Open repository in Cursor | Done (after local clone + token auth) |
+| Open repository in Cursor | Done |
 | README: tools, steps, issues | Done (this file) |
 | Commit and push to GitHub | Done |
-| Reply to email with README link | Pending — link below |
-
-**Direct link to this README on GitHub:**  
-https://github.com/project-klik/100Hires-Guntur-Satria-Application/blob/main/README.md
 
 ---
 
 ## What I Learned
 
-- Setting up a dev environment is not only installing an IDE — **Git auth** and **cloning the repo locally** are essential.
-- **Personal Access Tokens** are the standard way to connect Git clients (including Cursor) to GitHub over HTTPS.
-- A practical Git workflow: **pull → edit (with AI assistance) → commit → push**.
-- Reading docs and tutorials when stuck is part of the process — exactly what this step is designed to evaluate.
+- The setup flow is logical: **install tools → create repo → clone → authenticate → open in Cursor**.
+- A **Personal Access Token** is the standard way to connect Git (and Cursor) to GitHub.
+- The day-to-day workflow is simple: **pull → edit (with AI assistance) → commit → push**.
+- Using Cursor Agent to help write this README made documenting the process quick and smooth.
 
 ---
 
